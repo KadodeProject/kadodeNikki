@@ -1,4 +1,10 @@
-##Docker
+# このアプリについて
+
+かどで日記は自分のために作った日記アプリです。
+
+かどでは土佐日記の最初の章？である「門出」より引用しました。
+
+# Docker 関連
 
 Docker の起動
 
@@ -49,3 +55,13 @@ Docker の終了
 ```
 docker-compose down
 ```
+
+## 参考にさせていただいた記事
+
+https://qiita.com/ucan-lab/items/56c9dc3cf2e6762672f4
+
+https://qiita.com/10mi8o/items/b435ef7fb838a40058c5
+
+https://tsyama.hatenablog.com/entry/docker-not-found-npm
+
+https://qiita.com/yktk435/items/10bd69d790808dbb3e87

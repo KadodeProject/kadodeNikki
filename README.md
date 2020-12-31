@@ -21,7 +21,7 @@ docker-compose logs
 コンテナの中に入る
 
 ```
-docker-compose exec app bash
+docker-compose exec kadode bash
 ```
 
 バージョン確認とか
@@ -32,7 +32,13 @@ php -v
 
 などできる。
 
-出る時は
+Laravel の Permission denied 出た時は
+
+```
+chown www-data storage/ -R
+```
+
+コンテナから出る時は
 
 ```
 exit

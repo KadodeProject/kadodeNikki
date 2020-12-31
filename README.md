@@ -21,7 +21,7 @@ docker-compose logs
 コンテナの中に入る
 
 ```
-docker-compose exec app bash
+docker-compose exec kadode bash
 ```
 
 バージョン確認とか
@@ -43,3 +43,6 @@ Docker の終了
 ```
 docker-compose down
 ```
+
+Docker 導入で参考にした記事
+https://qiita.com/ucan-lab/items/56c9dc3cf2e6762672f4

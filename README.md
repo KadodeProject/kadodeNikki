@@ -56,6 +56,10 @@ Docker の終了
 docker-compose down
 ```
 
+ローカルホスト
+http://127.0.0.1:10080/
+8000 じゃないのでご注意を。
+
 ## 参考にさせていただいた記事
 
 https://qiita.com/ucan-lab/items/56c9dc3cf2e6762672f4

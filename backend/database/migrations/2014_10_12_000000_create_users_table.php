@@ -21,8 +21,8 @@ class CreateUsersTable extends Migration
             $table->string('drive_token')->nullable()->comment('Googleドライブ系');
 
             $table->dateTime('drive_backup_date')->nullable()->comment('Googleドライブバックアップ日');
-            $table->dateTime('imported')->nullable()->comment('インポート日');
-            $table->dateTime('exported')->nullable()->comment('エクスポート日');
+            $table->dateTime('imported_date')->nullable()->comment('インポート日');
+            $table->dateTime('exported_date')->nullable()->comment('エクスポート日');
 
             $table->string('email')->nullable()->unique();
             $table->timestamp('email_verified_at')->nullable();

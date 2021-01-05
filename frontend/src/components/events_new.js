@@ -31,7 +31,7 @@ class EventsNew extends Component {
     this.props.history.push("/");
   }
   render() {
-    const { handleSubmit } = this.props;
+    const { handleSubmit, pristine, submitting } = this.props;
     return (
       <React.Fragment>
         <form onSubmit={handleSubmit(this.onSubmit)}>
@@ -49,7 +49,12 @@ class EventsNew extends Component {
               component={this.renderField}
             />
           </div>
-          <input type="submit" value="Submit" disabled={false} />
+          <input
+            type="submit"
+            value="Submit"
+            disabled={pristine || submitting}
+          />
+          {/* pristineでなにもない時submit消す、submittingで二重クリック防止 */}
           <Link to="/">Cancel</Link>
         </form>
       </React.Fragment>

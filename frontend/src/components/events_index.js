@@ -3,6 +3,7 @@ import React, { Component } from "react";
 
 import { connect } from "react-redux"; //stateやactionとコンポーネントの関連付けを行う、viewのイベントで状態を遷移→遷移後の状態を描写
 import { readEvents } from "../actions";
+import { Link } from "react-router-dom";
 //propsはcomponentの属性→props.nameなどで属性に対して参照できる（数値、文字列、関数など）　変更不可能
 //stateはコンポーネントの内部のみで使用　変更可能 stateはクラスコンポーネントのみで可能
 import _ from "lodash";
@@ -33,6 +34,7 @@ class EventsIndex extends Component {
           </thead>
           <tbody>{this.renderEvents()}</tbody>
         </table>
+        <Link to="/events/new">New Events</Link>
       </React.Fragment>
     );
   }

@@ -11,64 +11,31 @@ import PropTypes from "prop-types";
 //   }
 // }
 
-//propsはcomponentの属性→props.nameなどで属性に対して参照できる（数値、文字列、関数など）
-
-const App = () => {
-  const profiles = [
-    {
-      name: "Taro",
-      age: 10,
-    },
-    {
-      name: "Hanako",
-      age: 5,
-    },
-    // {
-    //   name: "AA",
-    // },
-  ];
-  return (
-    <div>
-      {profiles.map((profile, index) => {
-        return <User name={profile.name} age={profile.age} key={index} />;
-        // ユニークなkeyが必要→mapのindex機能を利用する
-      })}
-      {/* <User name={"Taro"} age={10} />
-      <User name={"Hanako"} age={5} /> */}
-      {/* ↑ユーザーコンポーネントに対してnameというプロップス属性を与えている */}
-    </div>
-  );
-};
-
-// Appで受け取ったpropsを読む
-const User = (props) => {
-  return (
-    <div>
-      Hi,I'm {props.name}, and {props.age} years old!
-    </div>
-  );
-};
-//型チェック　バリデーション的な
-User.propTypes = {
-  name: PropTypes.string.isRequired,
-  age: PropTypes.number,
-};
-//デフォルトprops
-User.defaultProps = {
-  age: 1,
-};
-
-//関数コンポーネント
-// const App = () => {
-//   return (
-//     <div>
-//       <Cat />
-//       <Cat />
-//       <Cat />
-//     </div>
-//   );
-// };
-// const Cat = () => {
-//   return <div>Meow!</div>;
-// };
+//propsはcomponentの属性→props.nameなどで属性に対して参照できる（数値、文字列、関数など）　変更不可能
+//stateはコンポーネントの内部のみで使用　変更可能 stateはクラスコンポーネントのみで可能
+const App = () => <Counter></Counter>;
+class Counter extends Component {
+  //初期化処理
+  constructor(props) {
+    super();
+    console.log(this.state);
+    this.state = { count: 0 };
+  }
+  handlePlusButton = () => {
+    this.setState({ count: this.state.count + 1 }); //stateの状態変更
+    // this.state={count:1}とかするのはダメ←setStateでrenderが実行される
+  };
+  handleMinusButton = () => {
+    this.setState({ count: this.state.count - 1 }); //stateの状態変更
+  };
+  render() {
+    return (
+      <React.Fragment>
+        <div>count:{this.state.count}</div>
+        <button onClick={this.handlePlusButton}>+1</button>
+        <button onClick={this.handleMinusButton}>-1</button>
+      </React.Fragment>
+    );
+  }
+}
 export default App;

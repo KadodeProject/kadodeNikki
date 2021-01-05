@@ -1,13 +1,27 @@
 import React, { Component } from "react";
 
-class App extends Component {
-  render() {
-    return (
-      <div>
-        <h1 className="App-title">HelloWorld!</h1>
-      </div>
-    );
-  }
-}
+//AppがクラスComponentを継承←クラスコンポーネント
+// class App extends Component {
+//   render() {
+//     return (
+//       <React.Fragment>
+//         <h1 className="App-title">HelloWorld!</h1>
+//       </React.Fragment>
+//     );
+//   }
+// }
 
+//関数コンポーネント
+const App = () => {
+  return (
+    <div>
+      <Cat />
+      <Cat />
+      <Cat />
+    </div>
+  );
+};
+const Cat = () => {
+  return <div>Meow!</div>;
+};
 export default App;

@@ -139,7 +139,7 @@ frontend yarn
 
 ```
 cd frontend
-yarn run start
+yarn start
 ```
 
 ## 参考にさせていただいた記事

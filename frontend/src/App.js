@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-
+import PropTypes from "prop-types";
 //AppがクラスComponentを継承←クラスコンポーネント
 // class App extends Component {
 //   render() {
@@ -23,14 +23,14 @@ const App = () => {
       name: "Hanako",
       age: 5,
     },
-    {
-      name: "AA",
-    },
+    // {
+    //   name: "AA",
+    // },
   ];
   return (
     <div>
       {profiles.map((profile, index) => {
-        return <User name={profiles.name} age={profile.age} key={index} />;
+        return <User name={profile.name} age={profile.age} key={index} />;
         // ユニークなkeyが必要→mapのindex機能を利用する
       })}
       {/* <User name={"Taro"} age={10} />
@@ -48,7 +48,11 @@ const User = (props) => {
     </div>
   );
 };
-
+//型チェック　バリデーション的な
+User.propTypes = {
+  name: PropTypes.string.isRequired,
+  age: PropTypes.number,
+};
 //デフォルトprops
 User.defaultProps = {
   age: 1,

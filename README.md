@@ -21,6 +21,12 @@
 - 日記にその日の気持ちをバーで値入れれる
 - 日記に画像を貼れる（← おそらく難しい）
 
+## 技術的な目標
+
+- Zenn みたいな UI
+- 高速検索機能
+-
+
 ## カラー
 
 背景カラー:<span style="color:#E4B182">#E4B182</span>
@@ -127,6 +133,15 @@ docker-compose down
 http://127.0.0.1:10080/
 8000 じゃないのでご注意を。
 
+frontend yarn
+
+サーバー起動
+
+```
+cd frontend
+yarn run start
+```
+
 ## 参考にさせていただいた記事
 
 https://qiita.com/ucan-lab/items/56c9dc3cf2e6762672f4
@@ -138,3 +153,5 @@ https://tsyama.hatenablog.com/entry/docker-not-found-npm
 https://qiita.com/yktk435/items/10bd69d790808dbb3e87
 
 https://qiita.com/rei67/items/273ebef44d19912733b7
+
+https://www.udemy.com/course/react-application-development/

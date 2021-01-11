@@ -19,14 +19,24 @@ import thunk from "redux-thunk";
 import { BrowserRouter, Route, Switch } from "react-router-dom"; //Link outside router防止
 
 import EventsNew from "./components/events_new";
+import EventsShow from "./components/events_show";
 
-const store = createStore(reducer, applyMiddleware(thunk));
+import { composeWithDevTools } from "redux-devtools-extension";
+const enhancer =
+  process.env.NODE_ENV === "development"
+    ? composeWithDevTools(applyMiddleware(thunk))
+    : applyMiddleware(thunk);
+
+const store = createStore(reducer, enhancer);
 ReactDOM.render(
   <Provider store={store}>
     <BrowserRouter>
       <Switch>
-        <Route exact path="/events/new" component={EventsNew} />
+        <Route path="/events/new" component={EventsNew} />
+        <Route path="/events/:id" component={EventsShow} />
         <Route exact path="/" component={EventsIndex} />
+        <Route exact path="/events" component={EventsIndex} />
+        {/* //exactは完全一致 */}
       </Switch>
     </BrowserRouter>
   </Provider>,

@@ -22,6 +22,9 @@ import EventsNew from "./components/events_new";
 import EventsShow from "./components/events_show";
 
 import { composeWithDevTools } from "redux-devtools-extension";
+
+import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
+
 const enhancer =
   process.env.NODE_ENV === "development"
     ? composeWithDevTools(applyMiddleware(thunk))
@@ -29,17 +32,19 @@ const enhancer =
 
 const store = createStore(reducer, enhancer);
 ReactDOM.render(
-  <Provider store={store}>
-    <BrowserRouter>
-      <Switch>
-        <Route path="/events/new" component={EventsNew} />
-        <Route path="/events/:id" component={EventsShow} />
-        <Route exact path="/" component={EventsIndex} />
-        <Route exact path="/events" component={EventsIndex} />
-        {/* //exactは完全一致 */}
-      </Switch>
-    </BrowserRouter>
-  </Provider>,
+  <MuiThemeProvider>
+    <Provider store={store}>
+      <BrowserRouter>
+        <Switch>
+          <Route path="/events/new" component={EventsNew} />
+          <Route path="/events/:id" component={EventsShow} />
+          <Route exact path="/" component={EventsIndex} />
+          <Route exact path="/events" component={EventsIndex} />
+          {/* //exactは完全一致 */}
+        </Switch>
+      </BrowserRouter>
+    </Provider>
+  </MuiThemeProvider>,
   document.getElementById("root")
 );
 registerServiceWorker();
